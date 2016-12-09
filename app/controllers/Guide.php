@@ -37,7 +37,7 @@ class Guide extends MY_Controller
 	function __construct()
 	{
 		parent::__construct();
-		if(ENVIRONMENT == 'production' || _ADMINIP != $_SERVER['REMOTE_ADDR'] && $_SERVER['REMOTE_ADDR'] != '192.168.10.174'){
+		if(ENVIRONMENT == 'production' && _ADMINIP != $_SERVER['REMOTE_ADDR']){
 			exit;
 		}
 
