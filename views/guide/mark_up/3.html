@@ -1,0 +1,168 @@
+<link type="text/css" href="/asset/css/guide/guide_common.css" rel="stylesheet" />
+<link type="text/css" href="/asset/css/guide/guide_content.css" rel="stylesheet" />
+<link type="text/css" href="/asset/css/guide/guide_default.css" rel="stylesheet" />
+<link type="text/css" href="/asset/css/guide/guide_layout.css" rel="stylesheet" />
+<!-- <script type="text/javascript" src="./guide_files/jquery-1.9.1.min.js.다운로드" charset="utf-8"></script>
+	<script type="text/javascript" src="./guide_files/ui.js.다운로드" charset="utf-8"></script> -->
+<div id="wrap">
+	<div id="container" class="viewport">
+		<div id="content">
+			<h2 class="hidden">본문</h2>
+			<div id="article">
+				<h1>HTML 가이드</h1>
+				<h2>코딩 규칙</h2>
+
+				<p>코드의 가독성과 일관성 유지를 위하여 이하 컨벤션을 바탕으로 마크업한다.</p>
+				<h3>코드 정렬</h3>
+				<h4>줄바꿈</h4>
+				<p>
+					빈 줄이 생기지 않게 하며, 가독성을 위하여 콘텐츠 섹션간의 빈 줄을 한 줄까지만 허용한다.<br>
+					태그 내에 여러줄의 콘텐츠가 들어갈 경우 줄바꿈 처리하고 내용을 들여쓴다.
+				</p>
+				<p class="bul_arr">태그 내부 내용이 한 줄일 때</p>
+				<pre><code>&lt;p&gt;
+	여는 주석의 첫 줄은 닫는 주석과 동일한 문구로 요약한다.
+&lt;/p&gt;								(X)
+
+&lt;p&gt;여는 주석의 첫 줄은 닫는 주석과 동일한 문구로 요약한다.&lt;/p&gt;	(O)</code></pre>
+
+				<p class="bul_arr">태그 내부 내용이 여러 줄일 때</p>
+				<pre><code>&lt;p&gt;
+	여는 주석의 첫 줄은 닫는 주석과 동일한 문구로 요약하며,<strong>&lt;br /&gt;</strong>
+	여는 주석을 개행하여 두 번 째 줄부터 전달사항을 자유롭게 기입한다.
+&lt;/p&gt;</code></pre>
+
+				<p class="bul_arr">내비게이션은 예외적으로 li내 직속 하위 &lt;a&gt;는 개행하지 않는다.</p>
+				<pre><code>&lt;ul id="gnb"&gt;
+	<strong>&lt;li&gt;&lt;a href="#"&gt;강동관광&lt;/a&gt;</strong>
+		&lt;ul&gt;
+			&lt;li&gt;&lt;a href="#"&gt;관광명소&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href="#"&gt;먹거리여행&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href="#"&gt;자전거여행&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href="#"&gt;생태여행&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href="#"&gt;걷기여행&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href="#"&gt;촬영하기 좋은 장소&lt;/a&gt;&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+				<h4>띄어쓰기</h4>
+				<ul class="bul_arr">
+					<li><strong>띄어쓰기</strong>는 스페이스 1칸만을 허용한다. 임의로 2칸 이상 띄어쓰지 않는다.</li>
+				</ul>
+
+				<h4>들여쓰기</h4>
+				<ul class="bul_arr">
+					<li>body 태그 밖의 기본 태그와, body 태그 내의 직속 자식 컨테이너는 들여쓰지 않는다.</li>
+					<li>body 내의 두 번 째 깊이 노드부터<strong> 1뎁스당 1tab씩 들여씀</strong>을 원칙으로 한다.</li>
+				</ul>
+
+				<pre><code>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko"&gt;
+&lt;head&gt;
+&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" /&gt;
+&lt;meta http-equiv="X-UA-Compatible" content="IE=edge" /&gt;
+&lt;title&gt;타이틀 | 가이스트코리아&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+<strong>&lt;div id="wrap"&gt;
+	&lt;div id="header"&gt;
+		&lt;div id="util"&gt;&lt;/div&gt;
+	&lt;/div&gt;</strong>&lt;!-- //header --&gt;
+	<strong>&lt;div id="container"&gt;&lt;/div&gt;
+&lt;/div&gt;</strong>&lt;!-- //wrap --&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+				<h3>예외</h3>
+				<h4>테이블</h4>
+				<ul class="bul_arr">
+					<li>과도한 들여쓰기를 지양하기 위해 <strong>&lt;table&gt;</strong> 직속 하위 엘리먼트 및 <strong>&lt;tr&gt;</strong>은 는 들여쓰기를 생략한다.</li>
+					<li>제목 셀은 콘텐츠의 방향에 따라 행 <strong>&lt;th scope="row"&gt;</strong>, 열 <strong>&lt;th scope="col"&gt;</strong>을 기입한다.</li>
+					<li><strong>tfoot</strong>은 <strong>thead와 tbody의 사이</strong>에 위치시킨다.</li>
+					<li>
+						열 너비 지정은 &lt;col style="width:18%" /&gt;와 같이 인라인 스타일로 지정하며,
+						퍼센티지로 적용할 경우 가급적 정수형으로 하되, 불가피한 경우 소수점 첫째 자리까지 허용한다.
+						속성의 끝부분에 세미콜론(;)은 생략한다.<br>
+					</li>
+					<li>가장 큰 너비를 가진 셀은 &lt;col style="width:<strong>auto</strong>" /&gt;로 처리한다.</li>
+					<li>빈 셀은 하위 브라우저의 크로스브라우징 이슈로 인해 공백문자(<strong>&amp;nbsp;</strong>)로 채운다.</li>
+				</ul>
+
+				<pre><code>&lt;table summary=""&gt;
+&lt;caption&gt;목록&lt;/caption&gt;
+&lt;colgroup&gt;
+	&lt;col style="<strong>width:20%</strong>" /&gt;
+	&lt;col style="<strong>width:auto</strong>" /&gt;
+&lt;/colgroup&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+	&lt;<strong>th scope="col"</strong>&gt;<strong>&amp;nbsp;</strong>&lt;/th&gt;
+	&lt;<strong>th scope="col"</strong>&gt;<strong>&amp;nbsp;</strong>&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tfoot&gt;
+&lt;tr&gt;
+	&lt;td&gt;<strong>&amp;nbsp;</strong>&lt;/td&gt;
+	&lt;td&gt;<strong>&amp;nbsp;</strong>&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tfoot&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+	&lt;<strong>th scope="row"</strong>&gt;<strong>&amp;nbsp;</strong>&lt;/th&gt;
+	&lt;td&gt;<strong>&amp;nbsp;</strong>&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+
+				<h4 id="form">입력 서식</h4>
+				<p>
+					개발단에서 필요에 따라 자주 이동/수정하는 서식관련 컨테이너 태그(form, fieldset)에 인접한 내부는 들여쓰기하지 않으며, 디폴트 스타일 외의 <strong>스타일시트를 적용하지 않는다</strong>.
+				</p>
+				<pre><code>&lt;div class="search_area"&gt;
+ 	<strong>&lt;form action=""&gt;
+ 	&lt;fieldset&gt;
+ 	&lt;legend&gt;검색&lt;/legend&gt;</strong>
+ 	&lt;select title="검색구분"&gt;
+ 		&lt;option&gt;전체&lt;/option&gt;
+ 	&lt;/select&gt;
+ 	&lt;div class="input_area"&gt;
+ 		&lt;label for="search"&gt;검색어를 입력하세요.&lt;/label&gt;
+ 		&lt;input type="text" id="search"&gt;
+ 		&lt;input type="submit" value="검색" /&gt;
+ 	&lt;/div&gt;
+ 	<strong>&lt;/fieldset&gt;
+ 	&lt;/form&gt;</strong>
+&lt;/div&gt;&lt;!-- //search_area --&gt;</code></pre>
+
+				<h4>&lt;pre&gt;</h4>
+				<p>pre 태그는 콘텐츠의 줄바꿈과 공백을 보존하는 태그인데, CSS로 줄바꿈만 처리(white-space:pre-line;)할 수도 있지만 ie7에서는 적용되지 않는 이슈가 있으므로 필요한 경우가 아니라면 들여쓰지 않기로 한다.</p>
+				<pre><code>		&lt;h1&gt;회원약관&lt;/h1&gt;
+		<strong>&lt;pre&gt;</strong>제 1 장 총 칙
+
+제 1 조 (목적 및 적용대상)
+
+1. 이 약관은 전기통신사업법 및 동법 시행령에 의하여 한국무역협회(이하"협회"라 합니다.)가 제공하는 인터넷 정보서비스(이하 "KITA.net"이라 합니다)의 이용조건 및 절차에 관한 사항과 기타 필요한 사항을 규정함을 목적으로 합니다.<strong>&lt;/pre&gt;</strong>
+		&lt;input type="checkbox" id="uagree" /&gt; &lt;label for="uagree"&gt;동의&lt;/label&gt;</code></pre>
+
+
+				<h3>색인 (헤딩)</h3>
+				<p>H5, H6 헤딩요소는 파편화의 여지가 있으므로 가급적 사용하지 않기로 한다.</p>
+
+				<h4>레이아웃 색인</h4>
+				<p class="box_code">
+					H1 : 로고, 시스템(사이트)명<br>
+					H2 : 주메뉴, 본문, 이용약관 등 대분류 섹션의 제목<br>
+					H3 : 각 섹션별 세부 콘텐츠
+				</p>
+
+				<h4>본문 색인</h4>
+				<p class="box_code">
+					H2 : 핵심 콘텐츠 전체 제목<br>
+					H3 : 서브 콘텐츠 제목<br>
+					H4 : 세부 콘텐츠 제목<br>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>

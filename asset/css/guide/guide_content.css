@@ -1,0 +1,32 @@
+@charset "utf-8";
+
+/* content */
+/* #article h1 {margin-top:33px; height:70px; font-size:30px; color:#666; letter-spacing:-2px;}
+#article h2 {margin:35px 0 5px; padding-left:29px; height:30px; color:#666; font-size:19px; line-height:30px; letter-spacing:-1px; background:url(../images/common/bul_tit1.gif) no-repeat 0 6px;}
+#article h1+h2 {margin-top:0;}
+#article h3 {margin:30px 0 5px; padding-left:22px; height:22px; color:#555; font-size:17px; line-height:22px; letter-spacing:-1px; background:url(../images/common/bul_tit2.gif) no-repeat 0 5px;}
+#article h2+h3 {margin-top:20px;}
+#article h4 {margin:20px 0 5px; padding-left:9px; color:#000; font-weight:bold; font-size:16px; background:url(../images/common/bul_qua_gray.gif) no-repeat 0 9px;}
+#article {color:#333; line-height:22px;}
+#article strong {color:#000;} */
+#article h1 {height:70px; margin-top:33px; font-size:30px; color:#333; letter-spacing:-2px;}
+#article h2 {height:70px; margin-top:33px; font-size:30px; color:#333; letter-spacing:-2px;}
+#article h2 {height:30px; margin:10px 0 15px; color:#333; font-size:22px; line-height:30px; letter-spacing:-1px;}
+#article h1+h2 {clear:both; margin-top:0;}
+/* #article h3 {margin:30px 0 5px; padding:4px 0; border-top:1px solid #ccc; height:22px; color:#555; font-size:17px; line-height:22px; letter-spacing:-1px;} */
+#article h3 {clear:both; margin:40px 0 15px; padding:0 0 0 10px; border-left:2px solid #066; color:#066; font-size:18px; line-height:30px; background:#f9f9f9;}
+#article h2+h3 {margin-top:20px;}
+#article h4 {clear:both; margin:20px 0 5px; color:#000; font-weight:bold; font-size:16px;}
+#article {color:#333; line-height:22px;}
+#article strong {color:#000;}
+#article p {margin:0.5em 0;}
+.folder span {display:inline-block; width:280px;}
+
+@media only print {
+	#wrap {min-width:720px;}
+	.viewport {width:720px;}
+	#header, #sidebar, #footer {display:none;}
+	#content {float:none; margin-top:0; width:100%;}
+	/* #article h1, #article h2, #article h3, #article h4 {padding-left:0; background:none;} */
+}
+

@@ -62,7 +62,6 @@ class Guide extends MY_Controller
 			'uri4' 				=> $uri4,
 			'is_test' 			=> $this->unit->active,
 			'script_test_list' 	=> $this->script_test_list,
-			'is_master' 		=> get_auth_user('au_master'),
 		));
 
 		$this->tpl->define(array(

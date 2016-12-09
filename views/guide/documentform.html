@@ -1,0 +1,63 @@
+<style>
+.docu_wrap {
+	margin: 50px 25px;
+}
+</style>
+
+<div class="docu_wrap">
+	<p>
+		모든 양식에 대하여, 양식 버전 별로,
+		버전 테이블(ea_form_revision)에 기록된 hash와
+		옵션 테이블(ea_form_option)의 데이터로 만든 hash를 비교한다.
+	</p>
+	<p>
+		양식 수정 페이지를 거치지 않고 DB에서 옵션을 직접 수정한 경우,
+		두 hash의 값이 다를 수 있다.
+		(이 경우, 두 hash의 값을 일치시켜줄 필요 있음)
+	</p>
+
+	<table id="form-list" class="order-column stripe">
+		<thead>
+			<tr>
+				<th>양식 고유번호</th>
+				<th>양식명</th>
+				<th>양식 버전</th>
+				<th>hash 일치 여부</th>
+				<th>버전 테이블 hash</th>
+				<th>옵션 테이블 hash</th>
+			</tr>
+		</thead>
+		<tbody>
+		{@ display_list}
+			{@ .revs}
+			<tr>
+				<td>{.fo_id}</td>
+				<td>{.fo_name}</td>
+				<td class="text_center">{..fr_version}</td>
+				<td class="text_center"><strong style="color: {? ..integrity}green{:}red{/};">{? ..integrity}일치{:}불일치{/}</strong></td>
+				<td class="text_center">{..rev_hash}</td>
+				<td class="text_center">{..opt_hash}</td>
+			</tr>
+			{/}
+		{/}
+		</tbody>
+	</table>
+</div>
+
+<script>
+$(function(){
+	$('#form-list').DataTable({
+		columnDefs: [
+			{ targets: [0], visible: false, searchable: false },
+			{ targets: [1], orderData: [0, 2] },
+			{ targets: [2], orderData: [2, 0] },
+			{ targets: [3], orderData: [3, 0] },
+			{ targets: [4], orderable: false },
+			{ targets: [5], orderable: false }
+		],
+		order: [[ 1, 'asc' ]],
+		pageLength: 20,
+		lengthMenu: [10, 20, 30, 40, 50]
+	});
+});
+</script>

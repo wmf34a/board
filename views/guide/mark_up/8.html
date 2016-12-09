@@ -1,0 +1,262 @@
+<link type="text/css" href="/asset/css/guide/guide_common.css" rel="stylesheet" />
+<link type="text/css" href="/asset/css/guide/guide_content.css" rel="stylesheet" />
+<link type="text/css" href="/asset/css/guide/guide_default.css" rel="stylesheet" />
+<link type="text/css" href="/asset/css/guide/guide_layout.css" rel="stylesheet" />
+<!-- <script type="text/javascript" src="./guide_files/jquery-1.9.1.min.js.다운로드" charset="utf-8"></script>
+	<script type="text/javascript" src="./guide_files/ui.js.다운로드" charset="utf-8"></script> -->
+<div id="wrap">
+	<div id="container" class="viewport">
+		<div id="content">
+			<h2 class="hidden">본문</h2>
+			<div id="article">
+				<h1>네이밍 규약</h1>
+				<h2>기본 규칙</h2>
+
+				<h3>공통 규칙</h3>
+				<ul class="bul_arr">
+					<li>첫 시작에 숫자, 특수문자, 대문자의 사용은 지양한다.</li>
+					<li>'형태(역할)_의미_상태' 순서로 조합하며, 3단계를 넘어가지 않도록 권장한다.<br>
+						예) btn_apply_on, box_news, box_reply_open 등
+					</li>
+					<li>구분 기준이 모호하거나 추가 분량 예측이 불가한 경우 숫자를 붙여 구분짓는다.<br>
+						넘버링시 파일명 마지막단계 끝에 붙이되, 자릿수를 맞추기 위한 숫자 0은 쓰지 않는다.<br>
+						예) bul_dot_white1, bul_dot_white2, bul_dot_white3
+					</li>
+					<li>naming 정의 시 prefix(접두어), subfix(접두 보조), suffix(접미어)를 최대한 활용한다.</li>
+				</ul>
+
+				<h3 id="img_naming">이미지 네이밍 규칙</h3>
+				<ul class="bul_arr">
+					<li>일반 이미지의 prefix는 <strong>img_</strong>로 한다.</li>
+					<li><a href="/eas/test/mark_up/7#slice_sprite">스프라이트 이미지</a>의 prefix는 <strong>sp_</strong>로 한다.</li>
+				</ul>
+
+				<h3>id/class 규칙</h3>
+				<ul class="bul_arr">
+					<li>id, class 모두 <strong>underscore(_) 방식</strong>으로 사용한다.</li>
+					<li>id는 화면에서의 고유 기능을, class는 요소 기능을 표현하도록 naming한다.</li>
+					<li>id는 문서 내 한 번만 사용하며, id, class naming은 가급적 동일하지 않게 naming 한다.</li>
+				</ul>
+
+				<h3>prefix/subfix/suffix 정의</h3>
+
+				<table summary="" class="tb_data">
+				<caption>CSS 속성 선언 순서</caption>
+				<colgroup>
+					<col style="width:150px">
+					<col style="width:150px">
+					<col style="width:auto">
+				</colgroup>
+				<thead>
+				<tr>
+					<th scope="col">분류</th>
+					<th scope="col">prefix/subfix/suffix</th>
+					<th scope="col">정의</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td>타이틀</td>
+					<td>tit</td>
+					<td>일반 타이틀</td>
+				</tr>
+				<tr>
+					<td rowspan="3">영역</td>
+					<td>section</td>
+					<td>제목 요소를 가지는 영역 구분, 중첩사용 지양</td>
+				</tr>
+				<tr>
+					<td>wrap</td>
+					<td>일반 영역의 묶음. 선택적 사용, 중첩사용 지양</td>
+				</tr>
+				<tr>
+					<td>area</td>
+					<td>입력/조작 기능 영역의 묶음. 선택적 사용, 중첩사용 지양</td>
+				</tr>
+
+				<tr>
+					<td rowspan="4">내비게이션</td>
+					<td>gnb</td>
+					<td>전체 내비게이션</td>
+				</tr>
+				<tr>
+					<td>lnb</td>
+					<td>GNB 영역의 지역 내비게이션</td>
+				</tr>
+				<tr>
+					<td>snb</td>
+					<td>사이드 내비게이션 (좌/우측 메뉴)</td>
+				</tr>
+				<tr>
+					<td>util</td>
+					<td>유틸메뉴, 보조 내비게이션 (푸터나 헤더 최상단의 메뉴 영역)</td>
+				</tr>
+				<tr>
+					<td>탭</td>
+					<td>tab</td>
+					<td>탭버튼, 탭메뉴</td>
+				</tr>
+				<tr>
+					<td>테이블</td>
+					<td>tb</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td>목록</td>
+					<td>list</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td>버튼</td>
+					<td>btn</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td>박스</td>
+					<td>box</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td>아이콘</td>
+					<td>ico</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td rowspan="2">선</td>
+					<td>line_방향</td>
+					<td>일반 실선</td>
+				</tr>
+				<tr>
+					<td>line_dot_방향</td>
+					<td>점선</td>
+				</tr>
+				<tr>
+					<td>배경</td>
+					<td>bg</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td>섬네일 이미지</td>
+					<td>thumb</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td>페이징</td>
+					<td>pagination</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td>배너</td>
+					<td>bn</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td rowspan="5">텍스트</td>
+					<td>txt</td>
+					<td>일반 텍스트</td>
+				</tr>
+				<tr>
+					<td>subject</td>
+					<td>주제</td>
+				</tr>
+				<tr>
+					<td>num</td>
+					<td>숫자 (언더바는 붙이지 않음)</td>
+				</tr>
+				<tr>
+					<td>date</td>
+					<td>날짜</td>
+				</tr>
+				<tr>
+					<td>time</td>
+					<td>시간</td>
+				</tr>
+				<tr>
+					<td>강조</td>
+					<td>point</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td rowspan="2">링크</td>
+					<td>link</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td>link_more</td>
+					<td>더보기 링크</td>
+				</tr>
+				<tr>
+					<td rowspan="3">방향</td>
+					<td>lgt, rgt</td>
+					<td>왼쪽, 오른쪽</td>
+				</tr>
+				<tr>
+					<td>prev, next</td>
+					<td>이전, 다음</td>
+				</tr>
+				<tr>
+					<td>top, mid, btm</td>
+					<td>상단, 중간, 하단</td>
+				</tr>
+				<tr>
+					<td>상태</td>
+					<td>on, off, over, active</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td>레이어</td>
+					<td>layer</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td>상세설명</td>
+					<td>desc</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td>댓글</td>
+					<td>comment</td>
+					<td>&nbsp;</td>
+				</tr>
+				</tbody>
+				</table>
+
+				<h3 id="naming_folder">폴더 및 파일명 규칙</h3>
+				<p>폴더 및 HTML 파일명 지정은 <strong>네이밍 기본 규칙에서 예외</strong>로 하며, 다음과 같이 관리한다.</p>
+				<a href="/eas/test/mark_up/1#folder_structure" class="btn">파일 및 폴더 구조 보기</a>
+
+				<h4>html/ 하위폴더 네이밍</h4>
+				<p class="box_white"><img src="/asset/images/guide/img_folder_tree.png" alt="html 폴더구성 예시화면"></p>
+				<ul class="bul_arr">
+					<li>정보구조도(IA)에 정의된 메뉴구조에 의해, 대메뉴(1뎁스)를 폴더별로 구성한다.</li>
+					<li>페이지 분량이 방대할 경우, 필요에 따라 하위뎁스를 하위폴더로 둘 수 있다.</li>
+					<li>대메뉴명을 폴더명으로 하며, <strong>메뉴명이 한글일 경우 한글</strong>로 정의한다.</li>
+					<li>특수문자는 "(", ")" 만 허용하며, 공백(띄어쓰기)을 허용하지 않는다.</li>
+				</ul>
+
+				<h4>images/content/ 하위폴더 네이밍</h4>
+				<p class="box_white"><img src="/asset/images/guide/img_img_tree.png" alt="이미지 폴더구성 예시화면"></p>
+				<ul class="bul_arr">
+					<li>이미지 분량이 적은 경우 <strong>하위폴더를 생략</strong>할 수 있다.</li>
+					<li>정보구조도(IA)에 정의된 메뉴구조에 의해, 대메뉴(1뎁스)를 폴더별로 구성한다.</li>
+					<li>대메뉴(1뎁스)명을 폴더명으로 하며, <strong>축약형 영문</strong>으로 정의한다.</li>
+					<li>특수문자는 "(", ")" 만 허용하며, 공백(띄어쓰기)을 허용하지 않는다.</li>
+				</ul>
+
+				<h4>HTML 파일 네이밍</h4>
+				<p class="box_white"><img src="/asset/images/guide/img_filename.png" alt="파일구성 예시화면"></p>
+				<ul class="bul_arr">
+					<li>정보구조도(IA)에 정의된 메뉴구조에 의해 <strong>한글</strong>로 정의한다.</li>
+					<li>특수문자는 "(", ")", "_" 만 허용하며, 공백(띄어쓰기)을 허용하지 않는다.</li>
+					<li>폴더에 대메뉴는 정의되어 있으므로, 중/소메뉴부터 언더바(_)로 구분하여 파일명을 정의한다.<br>
+						예) 중메뉴_소메뉴_화면명.html
+					</li>
+					<li>팝업의 경우, 화면명 앞에 (팝업)이라 표시한다.<br>
+						예) 중메뉴_소메뉴_(팝업)화면명.html
+					</li>
+				</ul>
+
+			</div>
+		</div>
+	</div>
+</div>

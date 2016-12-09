@@ -1,0 +1,92 @@
+<link type="text/css" href="/asset/css/guide/guide_common.css" rel="stylesheet" />
+<link type="text/css" href="/asset/css/guide/guide_content.css" rel="stylesheet" />
+<link type="text/css" href="/asset/css/guide/guide_default.css" rel="stylesheet" />
+<link type="text/css" href="/asset/css/guide/guide_layout.css" rel="stylesheet" />
+<!-- <script type="text/javascript" src="./guide_files/jquery-1.9.1.min.js.다운로드" charset="utf-8"></script>
+	<script type="text/javascript" src="./guide_files/ui.js.다운로드" charset="utf-8"></script> -->
+<div id="wrap">
+	<div id="container" class="viewport">
+		<div id="content">
+			<h2 class="hidden">본문</h2>
+			<div id="article">
+				<h1>HTML 가이드</h1>
+				<h2>주석 표기</h2>
+				<h3>공통 규칙</h3>
+				<p>모호하고 장황한 문장을 지양하여, 전달코자하는 핵심내용만 명료하고 정확한 <strong>명사형</strong>으로 표기한다.</p>
+				<pre><code><span class="wrong_code"><strong>&lt;!-- 개인회원이 로그인했을 때 보입니다. --&gt;</strong>	(X)</span> 장황한 문장
+<strong>&lt;!-- 개인회원 로그인시 노출 --&gt;</strong>			(O)</code></pre>
+
+				<p>
+					주석을 여닫는 코드와 주석 사이에 공백이 없으면 간헐적으로 오류가 발생하는 문제가 있으므로,<br>
+					&lt;!--<strong>(공백)</strong>주석내용<strong>(공백)</strong>--&gt; 과 같이 한 칸 씩 띄어쓴다.<br>
+				</p>
+				<pre><code><span class="wrong_code"><strong>&lt;!--주석내용--&gt;</strong>		(X)</span> 문구와 주석 여닫는 코드 사이를 띄어쓰지 않음
+<strong>&lt;!-- 주석내용 --&gt;</strong>	(O)</code></pre>
+
+				<p>
+					적용 범위의 시작과 끝에 <strong>동일한 문구</strong>로 기입하되, <strong>닫는 주석</strong>에는 주석 앞에 슬래시 두개+공백(// )을 붙인다.<br>
+				</p>
+
+				<pre><code><span class="wrong_code">&lt;!-- 개인회원일 때 노출 <strong>(시작)</strong> --&gt;
+	...내용...
+&lt;!-- 개인회원일 때 노출 <strong>(끝)</strong> --&gt;</span>		(X) 여닫는 주석 문구가 동일하지 않음
+
+&lt;!-- 개인회원일 때 노출 --&gt;
+	...내용...
+<span class="wrong_code">&lt;!-- <strong>//개인회원일</strong> 때 노출 --&gt;</span>		(X) 슬래시(//) 와 문구 사이는 띄어써야 함
+
+<strong>&lt;!-- 개인회원일 때 노출 --&gt;</strong>
+	...내용...
+<strong>&lt;!-- // 개인회원일 때 노출 --&gt;</strong>		(O)</code></pre>
+
+				<h4>주석의 내용이 길어질 경우</h4>
+				<p>
+					여는 주석의 첫 줄은 닫는 주석과 동일한 문구로 요약하며,<br>
+					여는 주석을 개행하여 두 번 째 줄부터 전달사항을 자유롭게 기입한다.
+				</p>
+				<pre><code><strong>&lt;!-- 개인회원일 때 결과목록
+	개인회원이 ...중략... 보여줍니다.
+--&gt;</strong>
+	...내용...
+<strong>&lt;!-- // 개인회원일 때 결과목록 --&gt;</strong></code></pre>
+
+				<h4>주석 적용 범위가 매우 작은 경우</h4>
+				<p>코드 한 줄에 대한 주석일 경우, <strong>닫는 태그의 뒤쪽에 닫는 주석</strong>으로 기입한다.</p>
+				<pre><code>&lt;th scope="col"&gt;수량&lt;/th&gt;<strong>&lt;!-- // 구매자일 때 노출 --&gt;</strong></code></pre>
+
+				<h3>그루핑 종료 주석</h3>
+				<p>
+					레이아웃 컨테이너의 닫는 태그 뒤에는 주석을 기입하지 않는다.<br>
+					이밖에 <strong>코드가 매우 길어 섹션 구분에 혼선 가능성</strong>이 있다고 판단될 시에는 그루핑 종료 주석을 활용할 수 있다.
+				</p>
+				<pre><code>&lt;div class="tab_cont"&gt;
+	...내용...
+&lt;/div&gt;<strong>&lt;!-- // .tab_cont --&gt;</strong></code></pre>
+
+				<h3>업데이트 주석</h3>
+				<p>
+					SVN등의 버전 관리 시스템이 구축되지 않은 개발환경일 경우,<br>
+					&lt;!-- YYYY.MM.DD : 주석내용 --&gt; 형태로 업데이트 날짜를 함께 기입한다.
+				</p>
+				<pre><code><span class="wrong_code">&lt;!-- <strong>2014/00/00</strong> : 삭제버튼 추가 --&gt;
+	...내용...
+&lt;!-- // <strong>2014/00/00</strong> : 삭제버튼 추가 --&gt;</span>	(X) 날짜표기형식이 YYYY.MM.DD가 아님
+
+&lt;!-- <strong>2014.00.00</strong> : 삭제버튼 추가 --&gt;
+	...내용...
+&lt;!-- // <strong>2014.00.00</strong> : 삭제버튼 추가 --&gt;	(O)</code></pre>
+
+				<h3>퍼블리셔 전달용 주석</h3>
+				<p>
+					대체로 주석은 개발자를 위한 내용이지만, 여러명의 퍼블리셔가 함께 작업하는 경우 커뮤니케이션을 위해 전용 주석을 사용할 수 있다.
+					이 때 혼동을 막기 위해 주석내용 앞에 <strong>접두사 [P]</strong>를 붙이며, <strong>퍼블리싱 후 삭제</strong>토록 한다.
+				</p>
+				<pre><code>&lt;!-- <strong>[P]</strong> 주석내용 --&gt;
+&lt;!-- // <strong>[P]</strong> 주석내용 --&gt;</code></pre>
+				<pre><code>&lt;!-- <strong>2014.00.00</strong> : <strong>[P]</strong> 주석내용 --&gt;
+&lt;!-- // <strong>2014.00.00</strong> : <strong>[P]</strong> 주석내용 --&gt;</code></pre>
+
+			</div>
+		</div>
+	</div>
+</div>

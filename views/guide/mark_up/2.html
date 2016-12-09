@@ -1,0 +1,101 @@
+<link type="text/css" href="/asset/css/guide/guide_common.css" rel="stylesheet" />
+<link type="text/css" href="/asset/css/guide/guide_content.css" rel="stylesheet" />
+<link type="text/css" href="/asset/css/guide/guide_default.css" rel="stylesheet" />
+<link type="text/css" href="/asset/css/guide/guide_layout.css" rel="stylesheet" />
+<!-- <script type="text/javascript" src="./guide_files/jquery-1.9.1.min.js.다운로드" charset="utf-8"></script>
+	<script type="text/javascript" src="./guide_files/ui.js.다운로드" charset="utf-8"></script> -->
+<div id="wrap">
+	<div id="container" class="viewport">
+		<div id="content">
+			<h2 class="hidden">본문</h2>
+			<div id="article">
+				<h1>HTML 가이드</h1>
+				<h2>기본 규칙</h2>
+				<h3>권장 환경</h3>
+
+				<h4><strong>DOCTYPE</strong></h4>
+				<p>HTML 문법은 해당 DTD의 명세에 기반하되,	확장성 및 호환성을 고려하여 XHTML1.0 기준으로 작성한다.</p>
+
+				<p class="bul_arr">일반 웹일 경우 <strong>XHTML1.0</strong>를 적용한다</p>
+				<pre><code>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;</code></pre>
+
+				<p class="bul_arr">모바일 웹일 경우 <strong>HTML5</strong>를 적용한다</p>
+				<pre><code>&lt;!DOCTYPE html&gt;</code></pre>
+				<p class="tip">DOCTYPE은 문서의 최상단에 위치해야 하며, 그 위에 주석이나 스크립트 등의 코드가 오게해서는 안된다.</p>
+
+				<h4><strong>언어 코드 : ko</strong></h4>
+				<p class="bul_arr">다국어 작업시 <a href="http://www.w3schools.com/tags/ref_language_codes.asp" target="_blank">국가별 언어 코드</a> 참조</p>
+				<pre><code>&lt;html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko"&gt;</code></pre>
+
+				<h4><strong>인코딩 : utf-8</strong></h4>
+				<p class="bul_arr">다국어 작업시 <a href="http://www.opera.com/docs/specs/opera9/#text" target="_blank">국가별 인코딩</a> 참조</p>
+				<pre><code>&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" /&gt;</code></pre>
+
+				<h3>HTML 기본 문서</h3>
+				<pre><code>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko"&gt;
+&lt;head&gt;
+&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" /&gt;
+&lt;meta http-equiv="X-UA-Compatible" content="IE=edge" /&gt;
+&lt;title&gt;화면명 &amp;lt; 대메뉴명 | 가이스트코리아&lt;/title&gt;
+&lt;link rel="stylesheet" type="text/css" href="../css/default.css" media="all" /&gt;
+&lt;link rel="stylesheet" type="text/css" href="../css/common.css" media="all" /&gt;
+&lt;script type="text/javascript" src="../js/jquery-1.9.1.min.js" charset="utf-8"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="../js/ui.js" charset="utf-8"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+				<!--
+				<div class="btn_area">
+					<a href="#" class="btn">Firefox 부가기능 HTML Validator 사용법</a>
+				</div>
+				-->
+
+				<h3>자주 틀리는 문법</h3>
+				<p class="bul_arr">모든 엘리먼트와 애트리뷰트는 <strong>소문자</strong>로 작성한다.</p>
+				<pre><code><span class="wrong_code">&lt;<strong>P C</strong>lass="desc"&gt;유의사항&lt;/<strong>P</strong>&gt;				(X)</span>
+&lt;<strong>p</strong> class="desc"&gt;유의사항&lt;/<strong>p</strong>&gt;				(O)</code></pre>
+				<pre><code><span class="wrong_code">&lt;a href="#" on<strong>C</strong>lick="" on<strong>M</strong>ouse<strong>O</strong>ver=""&gt;유의사항&lt;/a&gt;	(X)</span>
+&lt;a href="#" on<strong>c</strong>lick="" on<strong>m</strong>ouse<strong>o</strong>ver=""&gt;유의사항&lt;/a&gt;	(O)</code></pre>
+
+				<p class="bul_arr">태그는 반드시 닫는다.</p>
+				<pre><code><span class="wrong_code">&lt;input type="text" id="uid"<strong>&gt;</strong>				(X)</span>
+&lt;input type="text" id="uid" <strong>/&gt;</strong>				(O)</code></pre>
+				<p>범위가 없는 다음 태그는 특히 유의한다.</p>
+				<pre><code>area, br, col, frame, hr, img, input, link, meta, param</code></pre>
+
+				<p class="bul_arr">태그는 중첩 순서에 따라 닫는다.</p>
+				<pre><code><span class="wrong_code">&lt;p&gt;&lt;strong&gt;유의사항<strong>&lt;/p&gt;&lt;/strong&gt;</strong>				(X)</span>
+&lt;p&gt;&lt;strong&gt;유의사항<strong>&lt;/strong&gt;&lt;/p&gt;</strong>				(O)</code></pre>
+
+				<p class="bul_arr">애트리뷰트는 큰 따옴표( " )로 묶는다.</p>
+				<pre><code><span class="wrong_code">&lt;img src=<strong>'</strong>images/sample.gif<strong>'</strong> alt=<strong>'</strong>예시<strong>'</strong> /&gt;		(X)</span>
+&lt;img src=<strong>"</strong>images/sample.gif<strong>"</strong> alt=<strong>"</strong>예시<strong>"</strong> /&gt;		(O)</code></pre>
+
+				<p class="bul_arr">다음 특수문자는  <a href="http://www.w3schools.com/charsets/ref_utf_basic_latin.asp" target="_blank">Entity 코드</a>로 표기한다.</p>
+				<pre><code>&amp; → <strong>&amp;amp;</strong>	&lt; → <strong>&amp;lt;</strong>	&gt; → <strong>&amp;gt;</strong>	" → <strong>&amp;quot;</strong></code></pre>
+				<p class="tip">URL을 입력하는 과정에서 &amp;를 코드로 치환하지 않는 실수가 자주 발생한다.</p>
+
+				<h3>필수 애트리뷰트</h3>
+				<p>필수 애트리뷰트는 <strong>누락시 문법 오류</strong>로 검출되므로, 값이 없을 경우라도 누락해서는 안된다.</p>
+
+				<p class="bul_arr">흔히 누락하는 애트리뷰트</p>
+				<pre><code>&lt;img src="" <strong>alt=""</strong> /&gt;
+&lt;table border="1" <strong>summary=""</strong>&gt;&lt;/table&gt;
+&lt;form <strong>action=""</strong>&gt;&lt;/form&gt;
+&lt;iframe src="" <strong>title=""</strong>&gt;&lt;/iframe&gt;
+&lt;frame <strong>title=""</strong> /&gt;
+</code></pre>
+
+				<p class="bul_arr">개발상의 이유로 비어있는 프레임을 사용할 경우 <strong>title="빈 프레임"</strong>으로 기입한다.</p>
+				<pre><code>&lt;ifrmae src="sample.html" <strong>title="빈 프레임"</strong> scrolling="no"&gt;&lt;/iframe&gt;</code></pre>
+
+				<h3>오류 점검</h3>
+				<p>코딩 후 <a href="http://validator.kldp.org/" target="_blank">W3C Validation</a> 또는 <a href="https://addons.mozilla.org/ko/firefox/addon/html-validator/" target="_blank">firefox 부가기능 HTML Validator</a>에서 오류건수 0이 되도록 검증한다.</p>
+
+			</div>
+		</div>
+	</div>
+</div>

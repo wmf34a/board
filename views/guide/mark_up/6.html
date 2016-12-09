@@ -1,0 +1,71 @@
+<link type="text/css" href="/asset/css/guide/guide_common.css" rel="stylesheet" />
+<link type="text/css" href="/asset/css/guide/guide_content.css" rel="stylesheet" />
+<link type="text/css" href="/asset/css/guide/guide_default.css" rel="stylesheet" />
+<link type="text/css" href="/asset/css/guide/guide_layout.css" rel="stylesheet" />
+<!-- <script type="text/javascript" src="./guide_files/jquery-1.9.1.min.js.다운로드" charset="utf-8"></script>
+	<script type="text/javascript" src="./guide_files/ui.js.다운로드" charset="utf-8"></script> -->
+<div id="wrap">
+	<div id="container" class="viewport">
+		<div id="content">
+			<h2 class="hidden">본문</h2>
+			<div id="article">
+				<h1>CSS 가이드</h1>
+				<h2>스타일링 기법</h2>
+
+				<h3><abbr title="Image Replacement">IR</abbr> 기법</h3>
+				<p><strong>정보를 포함하는 이미지(인포그래픽)를 배경처리한 뒤, 전경에 마크업한 대체콘텐츠는 숨기는 기법</strong>이다. alt값 만으로는 대체콘텐츠를 온전히 표현할 수 없는 경우 longdesc 대용으로 사용한다. longdesc는 별도의 대체콘텐츠 파일을 링크하는 방식으로 처리하지만 IR기법에서는 동일 페이지 상에 처리함으로써 개발 편의와 사용성 증대를 도모할 수 있다는 이점이 있다.</p>
+				<p><a href="http://darum.daum.net/convention/css/css_ir" target="_blank" title="IR 기법 - 다룸 (새 창)">여러가지 방식의 IR 기법</a>이 있는데, 가이스트코리아 프로젝트에서는 다음과 같은 방식으로 처리한다.</p>
+				<h4>단순 이미지의 경우</h4>
+				<p class="bul_arr">HTML</p>
+				<pre><code>&lt;p&gt;&lt;img src="img_festival.jpg" alt="선사문화축제 일정안내 <strong>(하단설명)</strong>" /&gt;&lt;/p&gt;
+<strong>&lt;div class="hidden"&gt;
+	&lt;h1&gt;선사문화축제&lt;/h1&gt;
+	&lt;p&gt;2015.10.09(금) ~ 10.11(일)&lt;/p&gt;
+&lt;/div&gt;</strong></code></pre>
+				<p class="bul_arr">CSS</p>
+				<pre><code>/* default.css */
+.hidden {position:absolute; left:-9999px; width:1px; height:1px; font-size:0; line-height:0; overflow:hidden;}</code></pre>
+
+				<h4>이미지에 버튼 등의 조작요소가 포함된 경우</h4>
+				<p class="bul_arr">HTML</p>
+				<pre><code>&lt;div class="<strong>ir_wrap</strong>"&gt;
+	&lt;p&gt;&lt;img src="img_festival.jpg" alt="선사문화축제 일정안내 <strong>(하단설명)</strong>" /&gt;&lt;/p&gt;
+	&lt;h1 class="<strong>hidden</strong>"&gt;선사문화축제&lt;/h1&gt;
+	<strong>&lt;a href="#" target="_blank" title="새 창" class="ir_btn btn_shortcut"&gt;홈페이지 바로가기&lt;/a&gt;</strong>
+	&lt;p class="<strong>hidden</strong>"&gt;2015.10.09(금) ~ 10.11(일)&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+				<p class="bul_arr">CSS</p>
+				<pre><code>/* default.css */
+.hidden {position:absolute; left:-9999px; width:1px; height:1px; font-size:0; line-height:0; overflow:hidden;}
+
+/* common.css */
+.ir_wrap {position:relative;}
+<strong>.ir_wrap .ir_btn {display:block; position:absolute; text-indent:100%; white-space:nowrap; background:url(../images/common/blank.gif) no-repeat; overflow:hidden;}</strong>
+
+/* content.css */
+<strong>.btn_shortcut {top:150px; left:50px; width:100px; height:30px;}</strong></code></pre>
+
+				<h3 id="sprites">Sprites 기법</h3>
+				<p>이미지 리퀘스트 회수를 줄여 성능향상을 도모한다. 이미지 규격은 <a href="/eas/test/mark_up/8#slice_sprite">이미지 슬라이싱 기준</a>에 맞추도록 한다.</p>
+				<p class="bul_arr">HTML</p>
+				<pre><code>&lt;ul class="<strong>sns_share</strong>"&gt;
+	&lt;li&gt;&lt;a href="#" class="<strong>sp_ico tw</strong>"&gt;트위터&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href="#" class="<strong>sp_ico fb</strong>"&gt;페이스북&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href="#" class="<strong>sp_ico</strong> <strong>yt</strong>"&gt;유튜브&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+				<p class="bul_arr">CSS</p>
+				<pre><code>/* common.css */
+<strong>.sp_ico {display:inline-block; text-indent:100%; white-space:nowrap; background:url(../images/common/sp_ico.gif) no-repeat; overflow:hidden;}</strong>
+
+/* content.css */
+.sns_share {overflow:hidden;}
+.sns_share li {float:left; margin:0 5px;}
+<strong>.sns_share .sp_ico {width:30px; height:30px;}
+.sns_share .sp_ico.tw {background-position:0 0}
+.sns_share .sp_ico.fb {background-position:-40px 0}
+.sns_share .sp_ico.yt {background-position:-80px 0}</strong></code></pre>
+
+			</div>
+		</div>
+	</div>
+</div>

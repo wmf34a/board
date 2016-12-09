@@ -1,0 +1,89 @@
+<link type="text/css" href="/asset/css/guide/guide_common.css" rel="stylesheet" />
+<link type="text/css" href="/asset/css/guide/guide_content.css" rel="stylesheet" />
+<link type="text/css" href="/asset/css/guide/guide_default.css" rel="stylesheet" />
+<link type="text/css" href="/asset/css/guide/guide_layout.css" rel="stylesheet" />
+<!-- <script type="text/javascript" src="./guide_files/jquery-1.9.1.min.js.다운로드" charset="utf-8"></script>
+	<script type="text/javascript" src="./guide_files/ui.js.다운로드" charset="utf-8"></script> -->
+
+<div id="wrap">
+	<div id="container" class="viewport">
+		<div id="content">
+			<h2 class="hidden">본문</h2>
+			<div id="article">
+				<h1>마크업 가이드라인</h1>
+				<h2>환경 및 설정</h2>
+
+				<h3>호환성</h3>
+				<h4>필수 브라우저</h4>
+				<p><strong>Internet Explorer 8.0 (기준)</strong>, IE9 · IE10 · <a href="http://windows.microsoft.com/ko-kr/internet-explorer/download-ie" target="_blank">IE11</a>, <a href="https://www.google.com/intl/ko/chrome/" target="_blank">Chrome 최신버전</a>, <a href="http://www.mozilla.or.kr/" target="_blank">Firefox 최신버전</a></p>
+				<h4>옵션 브라우저</h4>
+				<p>Internet Explorer 7, <a href="http://software.naver.com/software/summary.nhn?softwareId=MFS_104212" target="_blank" title="윈도우용 사파리 | 네이버 소프트웨어">Safari 브라우저</a>는 레이아웃이 크게 깨지지 않는 선까지 수용한다.</p>
+
+				<h3>웹 접근성</h3>
+				<h4>가이드 라인</h4>
+				<p><a href="http://www.wah.or.kr/Participation/guide.asp" target="_blank">한국형 웹 콘텐츠 접근성 가이드라인(KWCAG) 2.1</a>을 바탕으로 웹 접근성을 준수해야 한다.<br></p>
+				<h4>점검 방법</h4>
+				<p>
+					기획, 디자인, 퍼블리싱, 개발 등 각 <a href="/eas/test/mark_up/9">부서별 웹 접근성 점검항목</a>을 반드시 점검한다.<br>
+					퍼블리셔, 개발자는 작업 후 페이지별로 <a href="http://openwax.net/#download" target="_blank">OpenWAX</a>를 통해 1차 정성평가를 마친다.
+				</p>
+
+				<h3 id="folder_structure">파일 및 폴더 구조</h3>
+				<p>
+					이 구조는 가장 일반적인 형태이며, 프로젝트의 규모에 따라 폴더 뎁스를 가감할 수 있다. <br>
+					각 카테고리 명 및 HTML 파일은 <a href="/eas/test/mark_up/1#naming_folder">폴더 및 파일 네이밍 규칙</a>을 준수하도록 한다.<br>
+				</p>
+
+				<ul class="folder box_code">
+					<li><span>css/</span>
+						<ul>
+							<li><span>font/</span> 웹폰트</li>
+							<li><span>default.css</span> 리셋 스타일, 전역 스타일 정의</li>
+							<li><span>layout.css</span> 레이아웃(헤더, 푸터, 사이드 바 등) 템플릿 스타일 정의</li>
+							<li><span>common.css</span> 공통(버튼, 탭메뉴, 박스, 불릿, 서식 등) 스타일 정의</li>
+							<li><span>content.css</span> 각 서브페이지 스타일 정의</li>
+							<li><span>main.css</span> 메인페이지 스타일 정의</li>
+							<li><span>popup.css</span> 팝업 레이아웃 및 스타일 정의</li>
+						</ul>
+					</li>
+					<li><span>images/</span>
+						<ul>
+							<li><span>layout/</span> 레이아웃(헤더, 푸터, 사이드 바 등) 관련 이미지</li>
+							<li><span>common/</span> 공통(버튼, 탭메뉴, 박스, 불릿, 서식 등) 관련 이미지</li>
+							<li><span>content/</span>  각 서브페이지 이미지
+								<ul>
+									<li><span>각카테고리/</span></li>
+								</ul>
+							</li>
+							<li><span>main/</span> 메인페이지 이미지</li>
+							<li><span>popup/</span> 팝업 이미지</li>
+						</ul>
+					</li>
+					<li><span>js/</span>
+						<ul>
+							<li><span>jquery-1.10.1.min.js</span> jQuery 라이브러리</li>
+							<li><span>ui.js</span> 레이아웃 및 공통 UI(GNB, 탭메뉴 등) 컨트롤</li>
+							<li><span>main.js</span> 메인페이지 컨트롤</li>
+						</ul>
+					</li>
+					<li><span>html/</span>
+						<ul>
+							<li><span>각카테고리/</span></li>
+							<li><span>guide.html</span> HTML 가이드</li>
+							<li><span>index.html</span> 메인 페이지</li>
+						</ul>
+					</li>
+					<li><span>시스템명_퍼블리싱산출물목록.xslx</span></li>
+				</ul>
+
+				<h3>퍼블리싱 산출물목록 작성</h3>
+				<p class="box_white"><img src="/asset/images/guide/img_filelist.gif" alt="산출물목록 스크린샷"></p>
+				<ul class="bul_arr">
+					<li>정보구조도(IA)에 정의된 메뉴구조를 퍼블리싱 산출물 목록 양식에 옮기면, 파일경로 셀에 HTML 하이퍼링크가 생성된다. 엑셀상의 링크는 상대경로이므로 폴더구조를 변경하면 동작하지 않음에 유의한다.</li>
+					<li>해당 경로와 동일한 위치에 파일을 생성하여 사용하고, 작업 완료일자를 기재한다.</li>
+					<li>파일 버전관리는 <a href="https://opentutorials.org/course/305/1962" target="_blank" title="서브버전이란? (새 창)">SVN</a>등을 활용한다.</li>
+				</ul>
+
+			</div>
+		</div>
+	</div>

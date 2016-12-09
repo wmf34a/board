@@ -1,0 +1,116 @@
+<div style="margin-left:0;" id="snb_test">
+	<div class="snb_box">
+		<div class="logo">
+			<a href="/guide">
+				<div class="main_txt">
+					<span class="txt color skin{= skin_num}">Linux</span>
+				</div>
+				<div class="ver_txt">
+					<span class="txt">scenario</span>
+				</div>
+				<div class="sub_txt">
+					<span class="txt1">리눅스웨어(주)</span>
+					<span class="txt2 color skin{= skin_num}">wares</span>
+				</div>
+			</a>
+		</div>
+		<!-- // logo -->
+
+		<p class="guide_line"></p>
+
+
+		<div class="type_toggle">
+			<div class="toggle_label">
+				<a id="open_test_toggle_list_markup" class="btn_toggle m_right4 cursor">
+					<span id="test_toggle_list_markup_icon" class="ea_icon public_arrow_{= equal2print(uri2, 'mark_up', 'down', 'right')}"></span>
+				</a>
+				<a id="link_test_toggle_list_markup" class="label cursor">
+					<span class="txt">Mark Up</span>
+				</a>
+			</div>
+
+			<div class="toggle_list_wrap {= equal2print(uri2, 'mark_up', 'on')}" id="test_toggle_list_markup">
+				<p class="guide_line"></p>
+				<ul class="toggle_list first last">
+					<li class="{= equal2print(uri3, '1', 'on')}">
+						<a id="snb_test_link_to_guide_markup1" class="label cursor" data-href="/guide/mark_up/1">
+							<span class="txt">환경 및 설정</span>
+						</a>
+					</li>
+					<li class="{= equal2print(uri3, '2', 'on')}">
+						<a id="snb_test_link_to_guide_markup2" class="label cursor" data-href="/guide/mark_up/2">
+							<span class="txt">HTML 기본 규칙</span>
+						</a>
+					</li>
+					<li class="{= equal2print(uri3, '3', 'on')}">
+						<a id="snb_test_link_to_guide_markup3" class="label cursor" data-href="/guide/mark_up/3">
+							<span class="txt">HTML 코딩 규칙</span>
+						</a>
+					</li>
+					<li class="{= equal2print(uri3, '4', 'on')}">
+						<a id="snb_test_link_to_guide_markup4" class="label cursor" data-href="/guide/mark_up/4">
+							<span class="txt">HTML 주석 표기</span>
+						</a>
+					</li>
+					<li class="{= equal2print(uri3, '5', 'on')}">
+						<a id="snb_test_link_to_guide_markup5" class="label cursor" data-href="/guide/mark_up/5">
+							<span class="txt">css 기본 규칙</span>
+						</a>
+					</li>
+					<li class="{= equal2print(uri3, '6', 'on')}">
+						<a id="snb_test_link_to_guide_markup6" class="label cursor" data-href="/guide/mark_up/6">
+							<span class="txt">css 스타일링 기법</span>
+						</a>
+					</li>
+					<li class="{= equal2print(uri3, '7', 'on')}">
+						<a id="snb_test_link_to_guide_markup7" class="label cursor" data-href="/guide/mark_up/7">
+							<span class="txt">이미지 가이드</span>
+						</a>
+					</li>
+					<li class="{= equal2print(uri3, '8', 'on')}">
+						<a id="snb_test_link_to_guide_markup8" class="label cursor" data-href="/guide/mark_up/8">
+							<span class="txt">네이밍 규약</span>
+						</a>
+					</li>
+					<li class="{= equal2print(uri3, '9', 'on')}">
+						<a id="snb_test_link_to_guide_markup9" class="label cursor" data-href="/guide/mark_up/9">
+							<span class="txt">점검 항목</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- // snb -->
+<script>
+$(function (){
+	// side menu link
+	$("#snb_test [id^='snb_test_link_to_']").on('click', function(e){
+		e.preventDefault();
+		var link = $(this).data('href');
+
+		location.href = link;
+	});
+
+	// toggle menu open
+	$("#snb_test [id^='open_test_toggle_list_'], #snb_test [id^='link_test_toggle_list_']").on('click', function(e){
+		e.preventDefault();
+
+		var id_arr = this.id.split('_'),
+			toggle_list_id = this.id.replace(id_arr[0]+'_', ''),
+			$toggle_list = $("#" + toggle_list_id),
+			$toggle_icon = $("#" + toggle_list_id + "_icon");
+
+		if ($toggle_list.data('type') !== 'OPEN'){ // case by open
+			$toggle_icon.removeClass('public_arrow_right').addClass('public_arrow_down');
+			$toggle_list.addClass('on').data('type', 'OPEN');
+		}
+		else{
+			$toggle_icon.removeClass('public_arrow_down').addClass('public_arrow_right');
+			$toggle_list.removeClass('on').data('type', 'CLOSE');
+		}
+	});
+
+})
+</script>

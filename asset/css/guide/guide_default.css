@@ -1,0 +1,30 @@
+@charset "utf-8";
+
+* {padding:0; margin:0;}
+html {overflow-y:scroll;}
+body, a, select, input, button, textarea {font-family:'Malgun Gothic', Arial, Gulim, Dotum, Verdana, Tahoma;}
+caption {height:0; font-size:0; line-height:0; overflow:hidden;}
+legend, .hidden {position:absolute; left:-9999px; width:1px; height:1px; font-size:0; line-height:0; overflow:hidden;}
+fieldset {border:0;}
+li {list-style:none;}
+img {vertical-align:middle; border:0;}
+a, a:hover {color:red;}
+
+input[type=checkbox], input[type=radio] {position:relative; top:2px; *top:0; width:13px; height:13px; *vertical-align:top;}
+input[type=submit], input[type=reset] {margin:0; padding:0; border:0; cursor:pointer;}
+input[type=text], input[type=password] {padding:4px 6px; height:16px; border:1px solid #d8d8d8; font-size:13px; line-height:16px; vertical-align:middle;}
+button {border:0; vertical-align:middle; cursor:pointer; background:transparent; overflow:visible;}
+button::-moz-focus-inner {border:0; padding:0;}
+select {padding:3px; border:1px solid #d8d8d8; height:26px; font-size:13px; vertical-align:middle;}
+
+.al {text-align:left !important;}
+.ar {text-align:right !important;}
+.ac {text-align:center !important;}
+
+.fl {float:left !important;}
+.fr {float:right !important;}
+.fn {float:none !important;}
+.cl {clear:both !important;}
+
+.clfix {*zoom:1;}
+.clfix:after {display:block; clear:both; content:"";}
