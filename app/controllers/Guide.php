@@ -466,6 +466,17 @@ class Guide extends MY_Controller
 		$this->tpl->print_('index');
 	}
 
+
+	public function ci_guide($lang = 'kr')
+	{
+		$this->tpl->define(array(
+			'contents' 	=> "guide/ci_guide/{$lang}/styleguide.html",
+			'index' 	=> 'guide/_layout.test.html',
+		));
+
+		$this->tpl->print_('index');
+	}
+
 	//-----------------------------------------------------
 	// Sub - Notify Module
 	//-----------------------------------------------------
