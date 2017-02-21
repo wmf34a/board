@@ -477,6 +477,16 @@ class Guide extends MY_Controller
 		$this->tpl->print_('index');
 	}
 
+	public function python_guide($type='common')
+	{
+		$this->tpl->define(array(
+			'contents' 	=> "guide/python/{$type}.html",
+			'index' 	=> 'guide/_layout.test.html',
+		));
+
+		$this->tpl->print_('index');
+	}
+
 	//-----------------------------------------------------
 	// Sub - Notify Module
 	//-----------------------------------------------------

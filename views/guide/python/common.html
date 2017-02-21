@@ -1,0 +1,295 @@
+<link type="text/css" href="/asset/css/guide/guide_common.css" rel="stylesheet" />
+<link type="text/css" href="/asset/css/guide/guide_content.css" rel="stylesheet" />
+<link type="text/css" href="/asset/css/guide/guide_default.css" rel="stylesheet" />
+<link type="text/css" href="/asset/css/guide/guide_layout.css" rel="stylesheet" />
+<!-- <script type="text/javascript" src="./guide_files/jquery-1.9.1.min.js.다운로드" charset="utf-8"></script>
+	<script type="text/javascript" src="./guide_files/ui.js.다운로드" charset="utf-8"></script> -->
+
+<div id="wrap">
+	<div id="container" class="viewport">
+		<div class="rst-content">
+			<div role="main" class="document">
+				<div class="section" id="php-style-guide">
+					<h1>파이썬 스타일</h1>
+				</div>
+			</div>
+		</div>
+
+		<div id="content">
+			<div class="post_ct" id="viewTypeSelector">
+				<p>&nbsp;</p>
+				<p>&nbsp;</p>
+				<p>이 문서는 주요 파이썬 배포판의 표준 라이브러리를 포함하는 파이썬 코드에 대한 코딩 규약을 설명한다.</p>
+				<div id="article"><h3>들여쓰기 Indentation</h3></div>
+				<p>들여쓰기 단계마다 4 개의 공백 문자를 사용하며, 공백은 탭으로 처리.</p>
+				<pre><code>def do_make_dbname(ea_sid):
+    if ea_sid == "eas_db":
+        dbname = "eas_db"
+    else:
+        ea_sid = str(ea_sid)
+        if len(ea_sid) > 11:
+            return False
+        dbname = "%s%s" % ("s", ea_sid.zfill(11))
+    return dbname</code></pre>
+				<p>&nbsp;</p>
+				<div id="article"><h3>최대 줄 길이 Maximum Line Length</h3></div>
+				<p>모든 줄의 길이는 최대 79 문자가 되어야 하며, 초과시 강제개행 또는 괄호 문자(parentheses), 대괄호 문자(brackets), 중괄호 문자(braces) 내에 내포되어 있는 줄 계속 기능(implied line continuation)을 활용.</p>
+				<pre><code><b>강제개행</b>
+try:
+    sql = "SELECT us_id, do_id, us_name, so_name, us_title, \
+                  do_title, do_public, do_serial, do_regdate, \
+                  do_content, do_preserve, do_draft_date, \
+                  do_approve_type, do_option_content, do_end_date \
+           FROM ea_document \
+           WHERE do_status IN (2, 3, 4) AND do_regdate BETWEEN '%s' AND '%s'"\
+            %(q_data["t_range"]["start_date"], q_data["t_range"]["end_date"])
+    self.cur.execute(sql)
+except Exception as e:
+    self.do_handler_exception(e)
+</code></pre>
+	<pre><code><b>괄호사용</b>
+def __init__(self, width, height,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; color='black', emphasis=None, highlight=0):<br>&nbsp;&nbsp;&nbsp;&nbsp; if (width == 0 and height == 0 and<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; color == 'red' and emphasis == 'strong' or<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; highlight &gt; 100):<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; raise ValueError("sorry, you lose")<br>&nbsp;&nbsp;&nbsp;&nbsp; if width == 0 and height == 0 and (color == 'red' or<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; emphasis is None):<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; raise ValueError("I don't think so -- values are %s, %s" %<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (width, height))<br>&nbsp;&nbsp;&nbsp;&nbsp; Blob.__init__(self, width, height,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; color, emphasis, highlight)
+</code></pre>
+				<p>&nbsp;</p>
+				<div id="article"><h3>Imports</h3></div>
+				<p>- import 구문은 분리된 줄로 사용하나, from 의 경우 한줄사용이 가능.</p>
+				<p>&nbsp;</p>
+<pre><code>Yes: import os<br>&nbsp;&nbsp;&nbsp;&nbsp; import sys
+     from subprocess import Popen, PIPE
+
+No:&nbsp; import sys, os
+</code></pre>
+				<p>&nbsp;</p>
+				<p>- 클래스를 포함하고 있는 모듈에서 클래스를 import하려 할 때, 아래와 같이 사용.</p>
+<pre><code>from myclass import MyClass
+from foo.bar.yourclass import YourClass
+</code></pre>
+				<p>&nbsp;</p>
+				<p>- 위 방법 사용시 충돌발하면 아래와같이 사용.</p>
+<pre><code>import myclass
+import foo.bar.yourclass
+
+그리고, "myclass.MyClass" 과 "foo.bar.yourclass.YourClass" 같은 식으로 사용.
+</code></pre>
+				<p>&nbsp;</p>
+				<div id="article"><h3>공백 Spaces</h3></div>
+				<p>- 괄호, 대괄호, 중괄호 문자 안에서</p>
+				<pre><code>Yes: spam(ham[1], {eggs: 2})<br>No:&nbsp; spam( ham[ 1 ], { eggs: 2 } )</code></pre>
+				<p>&nbsp;</p>
+				<p>- 콤마, 세미콜론, 콜론 이전에</p>
+				<pre><code>Yes: if x == 4: print x, y; x, y = y, x<br>No:&nbsp; if x == 4 : print x , y ; x , y = y , x</code></pre>
+				<p>&nbsp;</p>
+				<p>- 함수 호출 구문의 시작 괄호 앞에서</p>
+				<pre><code>Yes: spam(1)<br>No:&nbsp; spam (1)</code></pre>
+				<p>&nbsp;</p>
+				<p>- 인덱싱 또는 슬라이싱을 시작하는 괄호 앞에서</p>
+				<pre><code>Yes: dict['key'] = list[index]<br>No:&nbsp; dict ['key'] = list [index]</code></pre>
+				<p>&nbsp;</p>
+				<p>- 대입 연산자(assignment) 앞뒤에서 하나 이상의 공백 문자를 사용하는 것</p>
+				<pre><code>Yes:
+	x = 1<br>	y = 2<br>	long_variable = 3
+No:
+	x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 1<br>	y&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 2<br>	long_variable = 3
+</code></pre>
+				<p>&nbsp;</p>
+				<p>- 이항 연산자(binary operator) 앞뒤로는 하나의 공백만 넣는다:</p>
+				<p>&nbsp;&nbsp;&nbsp; assignment (=), augmented assignment (+=, -= etc.),</p>
+				<p>&nbsp;&nbsp;&nbsp; comparisons (==, &lt;, &gt;, !=, &lt;&gt;, &lt;=, &gt;=, in, not in, is, is not),<br>&nbsp;&nbsp;&nbsp; Booleans (and, or, not).<br></p>
+				<p>- 산술 연산자 주변에는 공백을 넣는다.</p>
+				<pre><code>Yes:
+	i = i + 1<br>	submitted += 1<br>	x = x * 2 - 1<br>	hypot2 = x * x + y * y<br>	c = (a + b) * (a - b)
+No:
+	i=i+1<br>	submitted +=1<br>	x = x*2 - 1<br>	hypot2 = x*x + y*y<br>	c = (a+b) * (a-b)
+</code></pre>
+				<p>&nbsp;</p>
+				<p>- ‘=’ 문자가 keyword 매개변수를 지정하거나 기본 파라미터 값을 지정할 때에는 공백을 넣지 않는다.</p>
+				<pre><code>Yes:
+&nbsp;&nbsp;&nbsp;def complex(real, imag=0.0):<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return magic(r=real, i=imag)
+No:
+&nbsp;&nbsp;&nbsp; def complex(real, imag = 0.0):<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return magic(r = real, i = imag)
+</code></pre>
+				<p>&nbsp;</p>
+				<p>- 복합 구문(동일한 줄에 여러 구문)은 권장하지 않는다.</p>
+				<pre><code>Yes:
+&nbsp;&nbsp;&nbsp; if foo == 'blah':<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; do_blah_thing()<br>&nbsp;&nbsp;&nbsp; do_one()<br>&nbsp;&nbsp;&nbsp; do_two()<br>&nbsp;&nbsp;&nbsp; do_three()
+<br>
+Rather not:
+&nbsp;&nbsp;&nbsp; if foo == 'blah': do_blah_thing()<br>&nbsp;&nbsp;&nbsp; do_one(); do_two(); do_three()
+</code></pre>
+				<p>&nbsp;</p>
+				<p>- if/for/while 구문이 동일한 줄에 작은 블럭을 가지는 건 괜찮기는 하지만, 복수 개의 구문에 대해서는 절대로 이렇게 해선 안된다.</p>
+				<pre><code>Rather not:
+&nbsp;&nbsp;&nbsp; if foo == 'blah': do_blah_thing()<br>&nbsp;&nbsp;&nbsp; for x in lst: total += x<br>&nbsp;&nbsp;&nbsp; while t &lt; 10: t = delay()
+<br>
+Definitely not:
+&nbsp;&nbsp;&nbsp; if foo == 'blah': do_blah_thing()<br>&nbsp;&nbsp;&nbsp; else: do_non_blah_thing()
+&nbsp;&nbsp;&nbsp; try: something()<br>&nbsp;&nbsp;&nbsp; finally: cleanup()
+&nbsp;&nbsp;&nbsp; do_one(); do_two(); do_three(long, argument,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; list, like, this)
+&nbsp;&nbsp;&nbsp; if foo == 'blah': one(); two(); three()
+</code></pre>
+				<p>&nbsp;</p>
+				<div id="article"><h3>레이아웃 Layout</h3></div>
+				<p>- 최상위 함수와 클래스 정의는 2줄씩 띄어 씀</p>
+				<pre><code>except Exception as e:
+    L.logger.exception("UPDATE DBS ERROR : ", e)
+... (공백) ...
+... (공백) ...
+class DBManage():
+    """DBManage"""
+    def __init__(self, dbname=None):
+        // ....
+</code></pre>
+				<p>&nbsp;</p>
+				<p>- 클래스 내의 메소드 정의는 1줄씩 띄어 씀</p>
+				<pre><code>self._db.do_update_dbs(trigger)
+... (공백) ...
+    def _do_make_dbname(self, dbname):
+        """Make database name"""
+        if not dbname:
+</code></pre>
+				<p>&nbsp;</p>
+				<p>- SQL은 Query 구문라인을 기준으로 맞춘다.</p>
+				<pre><code>self.cur.execute("""SELECT datname
+                    FROM pg_database
+                    WHERE datistemplate=false""")
+</code></pre>
+				<p>&nbsp;</p>
+				<p>- 쌍따옴표를 기준으로 사용하되, 문장 내부에서 따옴표를 사용해야 하는 경우엔 홑따옴표를 병합하여 사용한다.</p>
+				<pre><code># 쌍따옴표 사용 (일반)
+db_list = ["".join(row[0]) for row in self.cur.fetchall()]
+if "s" in db and "old" not in db:
+
+# 홑따옴표 혼합사용
+cmd = 'export PGPASSWORD="%s";psql --host %s --user postgres -c "%s"' \
+      % (self.dbpass, self.dbhost, deletedb.strip())
+</code></pre>
+
+				<p>&nbsp;</p>
+				<div id="article"><h3>주석 Comments</h3></div>
+				<p>- 다중라인주석</p>
+				<pre><code> ... (공백) ...
+"""Database Handler
+Requirements:
+a. sudo apt-get install psycopg2
+"""
+... (공백) ...
+</code></pre>
+				<p>&nbsp;</p>
+				<p>- 단일라인주석</p>
+				<pre><code> def do_get_dbs_list(self):
+    """Get list of current databases"""
+</code></pre>
+				<p>&nbsp;</p>
+				<p>- 코드내 기능설명</p>
+				<pre><code>#: Get query string
+query_info = do_compose_query(data)
+</code></pre>
+				<p>&nbsp;</p>
+				<div id="article"><h3>네이밍 Naming</h3></div>
+				<p>- 공통적으로 구별되는 항목들.</p>
+				<pre><code>- b (single lowercase letter)
+- B (single uppercase letter)
+- lowercase
+- lower_case_with_underscores
+- UPPERCASE
+- UPPER_CASE_WITH_UNDERSCORES
+- CapitalizedWords
+Note: CapWords에서 축약어 사용시, 모두 대문자로.&nbsp; HTTPServerError 가 HttpServerError 보다 낫다.
+- mixedCase (differs from CapitalizedWords by initial lowercase character!)
+- Capitalized_Words_With_Underscores (ugly!)
+</code></pre>
+				<p>&nbsp;</p>
+				<p>- 언더스코어(_)로 시작되는항목.</p>
+				<pre><code>- _single_leading_underscore:<br>    약한 ‘내부용’ 의미.<br>    예를 들어 "from M import *" 를 하면 언더스코어로 시작하는 이름을 가진 객체는 import 하지 않음.<br>
+- single_trailing_underscore_:<br>    파이썬 키워드와의 충돌을 피하기 위해 사용. <br>    예를 들어, Tkinter.Toplevel(master, class_='ClassName')<br>
+- __double_leading_underscore:<br>    name mangling 기능을 호출할 때<br>    (inside class FooBar, __boo becomes _FooBar__boo; see below).<br>
+- __double_leading_and_trailing_underscore__:<br>    사용자 네임스페이스에 있는 "magic" 객체 또는 속성.<br>    예를 들어, __init__, __import__ or __file__.&nbsp; 절대로 이런 이름을 만들지 말 것
+</code></pre>
+				<p>&nbsp;</p>
+				<p>- 패키지, 모듈명.</p>
+				<pre><code>모듈은 짧고, 모두 소문자인 이름을 사용해야 한다. 언더스코어는 가독성을 높일 수 있다면 사용해도 된다. 파이썬 패키지 역시 짧고, 모두 소문자인 이름을 사용해야 한다. 이 경우에 언더스코어는 권장하지 않는다.
+</code></pre>
+				<p>&nbsp;</p>
+				<p>- 패키지, 모듈명.</p>
+				<pre><code>거의 예외없이, 클래스 이름은 CapWrods 규약을 따른다. 내부 사용을 위한 클래스는 언더스코어로 시작할 수 있다.
+
+class ElsConfig(object):
+    """ els config """
+    _info = {}
+    configfile = '/etc/config.ini'
+    config = ConfigParser.ConfigParser(allow_no_value=True)
+    res = config.read(configfile)
+    options = config.options("els_flag")
+</code></pre>
+				<p>&nbsp;</p>
+				<p>- 예외처리(Exception).</p>
+				<pre><code>예외는 클래스이기 때문에, 클래스 이름 규약이 역시 적용된다. 그러나, (만약 예외가 실제로 에러라면) 예외 이름에 Error”또는 키워드를 붙어야만 한다.
+
+try:
+    _info[option] = config.get("els_flag", option)
+    if _info[option] == -1:
+        print "Host Informations are not exist"
+except Exception as e:
+    print "Connection Error"
+</code></pre>
+				<p>&nbsp;</p>
+				<p>- 함수명(Function).</p>
+				<pre><code>함수 이름은 반드시 소문자여야 하고, 각 단어는 가독성을 위해 필요하다면, 언더스코어로 분리해야 한다.
+
+def __init__(self):
+    pub.subscribe(self.sub_auth, 'app.login.start')
+
+def sub_socket_io_messages(self, data):
+    if isinstance(R.topFrame._pnl, LoginPanel):
+         return
+</code></pre>
+				<p>&nbsp;</p>
+				<p>- 상수명(Constants).</p>
+				<pre><code>상수는 모듈 레벨에서 정의하고 모두 대문자로 구성하고 단어 간에는 언더스코어로 구분한다.
+
+ID_ICON_TIMER = wx.NewId()
+OPEN_APP = wx.NewId()
+LOGOUT_APP = wx.NewId()
+LOGIN_APP = wx.NewId()
+EXIT_APP = wx.NewId()
+</code></pre>
+				<p>&nbsp;</p>
+				<div id="article"><h3>코드스타일 Code style</h3></div>
+				<p>- None과 같은 싱글톤 비교는 언제나 ‘is’ 또는 ‘is not’과 함께 사용해야 한다. 절대로 동등 연산자는 사용하지 말자.</p>
+				<pre><code>if a is None:
+    sys.exit;
+</code></pre>
+				<p>&nbsp;</p>
+				<p>- 예외를 잡을 때, 그냥 ‘except:’ 구문을 사용하기 보다는 가능한 최대한 특정 예외를 지정한다.(권고)</p>
+				<pre><code><b>불명확</b>
+try:
+    self.SetIcon(self.logout_icon, u"메일플러그 메신저")
+except Exception, err:
+    R.logger.exception(err.message)
+<br><b>명확</b>
+try:
+    4 / 0
+except ZeroDivisionError as e:
+    print(e)
+</code></pre>
+				<p>&nbsp;</p>
+				<p>- 접두사와 접미사 검사를 위해 문자열을 슬라이싱하기 보다는 ''.startswith() 과 ''.endswith() 를 사용한다.</p>
+				<pre><code>Yes: if foo.startswith('bar'):
+No:  if foo[:3] == 'bar':
+</code></pre>
+				<p>&nbsp;</p>
+				<p>- 객체 비교는 타입을 직접 비교하기 보다는 언제나 isinstance()를 사용한다.</p>
+				<pre><code>Yes: if isinstance(obj, int):
+No:  if type(obj) is type(1):
+</code></pre>
+				<p>&nbsp;</p>
+				<p>- 이진 논리 연산(boolean) 값을 == 연산자를 사용하여 True 또는 False 값과 비교하지 않는다.</p>
+				<pre><code>Yes:   if greeting:
+No:    if greeting == True:
+Worse: if greeting is True:
+</code></pre>
+<br>
+			</div>
+		</div>
+	</div>
+</div>
