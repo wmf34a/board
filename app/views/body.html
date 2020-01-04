@@ -1,0 +1,30 @@
+<!--{+ body}-->
+<div class="container">
+<h1 id="box1">Board</h1>
+<table class="table table-striped">
+<tr>
+<th>no.</th>
+<th>작성자</th>
+<th>제목</th>
+<th>조회수</th>
+<th>작성 시간</th>
+</tr>
+{? !topics}
+<td colspan="4"><b>게시글이 없습니다.</b></td>
+{:}
+	{@ topics}
+	<tr>
+		<td><a href="/board/detail/{.bd_id}">{.bd_id}</a></td>
+		<td>{.bd_writer}</td>
+		<td><a href="/board/detail/{.bd_id}">{.bd_subject}</a></td>
+		<td>{.bd_count}</td>
+		<td>{.bd_date}</td>
+	</tr>
+	{/}
+{/}
+</table>
+<div id="box1">
+<button onclick="window.location.href='/board/detail'" class="btn btn-success">글 작성</button>
+</div>
+</body>
+</html>

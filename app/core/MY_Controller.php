@@ -7,7 +7,7 @@ class MY_Controller extends CI_Controller
 		parent::__construct();
 
 		$this->tpl->compile_dir = _CPL.'guide';
-		$this->tpl->template_dir = FCPATH.'views';
+		$this->tpl->template_dir = FCPATH.'app/views'; //뷰 페이지 경로 설정
 		$this->tpl->cache_dir = _CACHE;
 		if(!is_dir(_CPL.'guide')){
 			mkdir(_CPL.'guide', 0777, true);
@@ -17,7 +17,8 @@ class MY_Controller extends CI_Controller
 		define('POPUP_DIR', 'popup');
 		define('JSTREE_DIR', 'jstree');
 		if(!$this->uri->segment(1)){
-			redirect('/guide/main');
+	//		redirect('/guide/main');
+			redirect('/board'); //시작 경로 설정
 		}
 
 		// define layout
