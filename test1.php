@@ -1,8 +1,9 @@
 <?php
-function sum																														($a, $b)
+function sum($a, $b)
 {
     echo 1;
     echo 2;
     echo 3;
+    echo 4;
     return $a+$b;
 }
