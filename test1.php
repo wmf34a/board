@@ -5,5 +5,6 @@ function sum($a, $b)
     echo 2;
     echo 3;
     echo 4;
+    echo 5;
     return $a+$b;
 }
