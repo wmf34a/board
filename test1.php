@@ -1,5 +1,5 @@
 <?php
-function sum($a, $b)
+function sum											($a, $b)
 {
     echo 1;
     return $a+$b;
