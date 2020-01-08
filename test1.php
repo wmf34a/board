@@ -1,6 +1,18 @@
 <?php
-function sum($a, $b)
+function sum																						($a, $b)
 {
+	if(true)													
+	{				
+
+
+
+
+
+
+
+
+
+	}
     echo 1;
     echo 2;
     echo 3;
