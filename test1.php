@@ -1,7 +1,7 @@
 <?php
-function sum($a, $b)
-{
-    if (true) {
+function sum																									($a, $b) {
+	if (true) 
+	{
     }
     echo 1;
     echo 2;
