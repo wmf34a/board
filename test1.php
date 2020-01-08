@@ -18,5 +18,6 @@ function sum																						($a, $b)
     echo 3;
     echo 4;
     echo 5;
+    echo 6;
     return $a+$b;
 }
